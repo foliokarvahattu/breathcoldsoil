@@ -4,6 +4,7 @@ Created on 26.2.2018
 @author: Elias
 '''
 import random
+from magic import Spell
 
 class Player_Character:
 
@@ -39,18 +40,18 @@ class Player_Character:
             a = 1
         self.stats['LCK'] = a
         
-    def add_spell(self, spellname, spelleffect):
-        a = spelleffect[0]
-        b = spelleffect[1]
-        self.spells[spellname] = [a,b]
+    def add_spell(self, spellname, damage, description, effects):
+        spell = Spell(spellname, damage, description, effects)
+        self.spells[spellname] = spell
     def spell_list(self):
         for i in self.spells:
-            print("Name: {:s} Damage: {:d}p Effect: {:s}".format(i, self.spells[i][0], self.spells[i][1]))
+            for x in self.spells[i]:
+                print(x)
         
 player = Player_Character('Pasi')
 player.roll_stats()
 print(player.stats)
-player.add_spell('Fart of Doom', [10,'Fart so much everyone dies'])
-player.add_spell('LOVE', [0,'Give everyone love <3'])
+player.add_spell('Fart of Doom', -10,'Fart so much everyone dies', ['death'])
+player.add_spell('LOVE', 0,'Give everyone love <3', ['happy'])
 player.spell_list()
 print("ebin")

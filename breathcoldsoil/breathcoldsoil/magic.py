@@ -4,13 +4,16 @@ Created on 28 Mar 2018
 @author: Elias
 '''
 
-class Magic:
+class Spell:
 
 
 
-    def __init__(self, name):
+    def __init__(self, name, damage, description, effects):
         self.name = name
-        self.damage = 0
-        self.description = ""
-        self.effects = []
+        self.damage = int(damage)
+        self.description = description
+        self.effects = effects
+        
+    def __str__(self):
+        return "{Name: {:s} Damage: {:d}p Description: {:s} Status effect: {:s}}".format(self.name, self.damage, self.description, self.effects)
         
