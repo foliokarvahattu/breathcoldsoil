@@ -43,9 +43,10 @@ class Player_Character:
     def add_spell(self, spellname, damage, description, effects):
         spell = Spell(spellname, damage, description, effects)
         self.spells[spellname] = spell
+    
     def spell_list(self):
         for i in self.spells:
-            for x in self.spells[i]:
+            for x in self.spells[i][x]:
                 print(x)
         
 player = Player_Character('Pasi')
